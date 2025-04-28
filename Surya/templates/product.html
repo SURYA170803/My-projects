@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page - Coolers</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(45deg, #b31217, #e52d27);
+        }
+
+        .background-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: white;
+            clip-path: polygon(0 0, 60% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .product-card {
+            position: relative;
+            margin: 100px auto;
+            width: 80%;
+            max-width: 1200px;
+            height: 550px;
+            background: linear-gradient(to right, #8e2de2, #ff6a00);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            align-items:center;
+            z-index: 2;
+            display: flex;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .text-content {
+            flex: 1;
+            color: black;     
+        }
+
+        .text-content h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .text-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .image-content {
+            flex: 1;
+            position: relative;
+            z-index: 3;
+        }
+
+        .image-content img {
+            width: 110%;
+            height: auto;
+            transform: rotate(-20deg);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background-layer"></div>
+
+    <div class="product-card">
+        <div class="text-content">
+            <h2>Coolers-1</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet at, blanditiis saepe adipisci molestiae neque quisquam perferendis, repudiandae repellendus odio a repellat minus iste sapiente molestias nulla nam, quas perspiciatis!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, dolore.</p>
+        </div>
+        <div class="image-content">
+            <img src="../media/coolers_bg.png" alt="coolers">
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Counter</title>
+</head>
+<body>
+    <h1 id="head">Simple Counter</h1>
+    <h1 id="val">0</h1>
+    <button onclick="changeNmae()">Change name</button>
+    <br><br>
+    <button onclick="increment()" >Increment</button>
+    <button onclick="decrement()">Decrement</button>
+    <button onclick="reset()">Reset</button>
+</body>
+<script>
+    let count = 0;
+    const value = document.querySelector('#val');
+    function increment() {
+        count++;
+        value.innerText = count;
+        console.log(count);
+    }
+    function decrement() {
+        count--;
+        value.innerText = count;
+        console.log(count);
+    }
+    function reset() {
+        count = 0;
+        value.innerText = count;
+        console.log(count);
+    }
+    function changeNmae() {
+        const head = document.getElementById('head');
+        head.innerText = "Counter";
+    }
+</script>
+</html>
