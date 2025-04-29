@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sticky Notes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .input-container, #notes-Container {
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      max-width: 500px;
+      height: 100px;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 10px;
+      margin-right: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #notes p {
+      background-color: #ffff88;
+      width: auto;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 5px solid #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <div class="input-container">
+    <h1>Notes</h1>
+    <textarea id="noteInput" placeholder="Enter your note here..."></textarea>
+    <br>
+    <button id="addNoteBtn">Add Note</button>
+  </div>
+
+  <div id="notes-Container">
+    <h2>Sticky Notes</h2>
+    <div id="notes"></div>
+    <button id="delete">Delete All</button>
+    <button id="save">Save</button>
+  </div>
+
+  <script>
+    const addNoteBtn = document.getElementById('addNoteBtn');
+    const noteInput = document.getElementById('noteInput');
+    const notesContainer = document.getElementById('notes');
+    const deleteBtn = document.getElementById('delete');
+    const saveBtn = document.getElementById('save');
+
+    addNoteBtn.addEventListener('click', function () {
+      if (noteInput.value.trim() !== '') {
+        const para = document.createElement('p');
+        para.innerText = noteInput.value;
+        notesContainer.appendChild(para);
+        noteInput.value = '';
+      }
+    });
+
+    deleteBtn.addEventListener('click', function () {
+      notesContainer.innerHTML = '';
+      localStorage.removeItem('stickyNotes');
+    });
+
+    saveBtn.addEventListener('click', function () {
+      const notes = document.querySelectorAll('#notes p');
+      const notesArray = Array.from(notes).map(note => note.innerText);
+      localStorage.setItem('stickyNotes', JSON.stringify(notesArray));
+      alert('Notes saved!');
+    });
+
+
+    window.addEventListener('load', function () {
+      const saved = localStorage.getItem('stickyNotes');
+      if (saved) {
+        const notesArray = JSON.parse(saved);
+        notesArray.forEach(noteText => {
+          const para = document.createElement('p');
+          para.innerText = noteText;
+          notesContainer.appendChild(para);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
