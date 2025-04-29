@@ -4,37 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #head {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        #val {
+            font-size: 3em;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:active {
+            background-color: #0056b3;
+        }
+
+        button:nth-child(3) {
+            background-color: #dc3545;
+        }
+
+    </style>
 </head>
 <body>
-    <h1 id="head">Simple Counter</h1>
-    <h1 id="val">0</h1>
-    <button onclick="changeNmae()">Change name</button>
-    <br><br>
-    <button onclick="increment()" >Increment</button>
-    <button onclick="decrement()">Decrement</button>
-    <button onclick="reset()">Reset</button>
+    <div>
+        <h1 id="head">Simple Counter</h1>
+        <h1 id="val">0</h1>
+        <button onclick="changeName()">Change name</button><br><br> 
+        <button onclick="increment()">Increment</button>
+        <button onclick="decrement()">Decrement</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+
+    <script>
+        let count = 0;
+        const value = document.querySelector('#val');
+
+        function increment() {
+            count++;
+            value.innerText = count;
+            console.log(count);
+        }
+
+        function decrement() {
+            count--;
+            value.innerText = count;
+            console.log(count);
+        }
+
+        function reset() {
+            count = 0;
+            value.innerText = count;
+            console.log(count);
+        }
+
+        function changeName() {
+            const head = document.getElementById('head');
+            head.innerText = "Counter";
+        }
+    </script>
 </body>
-<script>
-    let count = 0;
-    const value = document.querySelector('#val');
-    function increment() {
-        count++;
-        value.innerText = count;
-        console.log(count);
-    }
-    function decrement() {
-        count--;
-        value.innerText = count;
-        console.log(count);
-    }
-    function reset() {
-        count = 0;
-        value.innerText = count;
-        console.log(count);
-    }
-    function changeNmae() {
-        const head = document.getElementById('head');
-        head.innerText = "Counter";
-    }
-</script>
 </html>
