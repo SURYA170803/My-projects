@@ -72,6 +72,9 @@
 
         function decrement() {
             count--;
+            if (count < 0) {
+                count = 0; 
+            }
             value.innerText = count;
             console.log(count);
         }
