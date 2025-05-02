@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Details Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+
+    form, #userData {
+      background: white;
+      padding: 20px;
+      max-width: 400px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #userData p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Details Form</h2>
+  <form id="userForm">
+    <label>Name:</label>
+    <input type="text" id="name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+
+    <label>Age:</label>
+    <input type="number" id="age" required>
+
+    <button type="submit">Save Details</button>
+  </form>
+
+  <div id="userData">
+    <h3>Saved User Data</h3>
+    <p id="displayName"></p>
+    <p id="displayEmail"></p>
+    <p id="displayAge"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById('userForm');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const ageInput = document.getElementById('age');
+
+    const displayName = document.getElementById('displayName');
+    const displayEmail = document.getElementById('displayEmail');
+    const displayAge = document.getElementById('displayAge');
+
+
+    window.onload = function () {
+      const userData = JSON.parse(localStorage.getItem('userDetails'));
+      if (userData) {
+        displayName.textContent = "Name: " + userData.name;
+        displayEmail.textContent = "Email: " + userData.email;
+        displayAge.textContent = "Age: " + userData.age;
+      }
+    };
+
+    form.onsubmit = function (e) {
+      e.preventDefault();
+
+      const userDetails = {
+        name: nameInput.value,
+        email: emailInput.value,
+        age: ageInput.value
+      };
+
+      localStorage.setItem('userDetails', JSON.stringify(userDetails));
+
+      displayName.textContent = "Name: " + userDetails.name;
+      displayEmail.textContent = "Email: " + userDetails.email;
+      displayAge.textContent = "Age: " + userDetails.age;
+
+      form.reset(); 
+    };
+  </script>
+
+</body>
+</html>
