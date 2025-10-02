@@ -53,9 +53,9 @@ function App() {
     return (
         <div className={`todo-app-wrapper ${theme}`}>
             <header className="app-header">
-                <h1>Enhanced Todo List</h1>
+                <h1>Todo App</h1>
                 <button onClick={toggleTheme} className="theme-toggle-btn">
-                    {theme === 'light' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+                    {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
                 </button>
             </header>
 
