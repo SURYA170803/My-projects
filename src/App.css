@@ -1,0 +1,230 @@
+.todo-app-wrapper {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: var(--color-surface);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px var(--color-shadow);
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-secondary-text);
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+}
+
+.theme-toggle-btn {
+  background-color: var(--color-secondary-text);
+  color: var(--color-surface);
+}
+
+.theme-toggle-btn:hover {
+  opacity: 0.8;
+}
+
+.add_todo_form {
+  margin-bottom: 30px;
+}
+
+.form_row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.form_group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.add_todo_form input[type="text"],
+.add_todo_form select,
+.add_todo_form input[type="date"] {
+  padding: 10px;
+  border: 1px solid var(--color-secondary-text);
+  border-radius: 5px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: border-color 0.2s;
+}
+
+.add_todo_form input:focus,
+.add_todo_form select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.add_todo_form .add-btn {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  flex-shrink: 0; 
+}
+
+.add_todo_form .add-btn:hover {
+  background-color: #2980b9; 
+}
+
+.error-message {
+  color: var(--color-error);
+  font-size: 0.8em;
+  margin-top: 4px;
+}
+
+.filters-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-shadow);
+}
+
+.search-bar-container {
+  flex-grow: 1;
+  display: flex;
+  position: relative;
+  max-width: 300px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid var(--color-secondary-text);
+  border-radius: 5px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: var(--color-secondary-text);
+  padding: 0 5px;
+  font-size: 1.2em;
+}
+.clear-search-btn:hover { color: var(--color-error); }
+
+.category-filter-container, .status-filter {
+  display: flex;
+  gap: 5px;
+}
+
+.category-filter-container button, .status-filter button {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-secondary-text);
+  color: var(--color-text);
+  padding: 8px 12px;
+}
+
+.category-filter-container button.active, .status-filter button.active {
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  border-color: var(--color-primary);
+}
+.category-filter-container button:hover, .status-filter button:hover {
+  opacity: 0.9;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--color-background);
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--color-shadow);
+  border-left: 5px solid var(--color-primary);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+}
+
+.todo-main-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.todo-text {
+  margin-left: 10px;
+  word-break: break-word;
+  font-size: 1.1em;
+}
+
+.todo-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.todo-item.completed {
+  opacity: 0.7;
+  border-left-color: var(--color-accent); 
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--color-secondary-text);
+}
+
+.todo-item.overdue {
+  border-left-color: var(--color-error); 
+  background-color: rgba(231, 76, 60, 0.1);
+}
+.todo-item.overdue .todo-due-date {
+  font-weight: bold;
+  color: var(--color-error);
+}
+
+.delete-btn {
+  background: none;
+  color: var(--color-secondary-text);
+  font-size: 1.5em;
+  padding: 0 5px;
+}
+
+.delete-btn:hover {
+  color: var(--color-error);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--color-secondary-text);
+  font-style: italic;
+}
+
+.app-footer {
+  border-top: 1px solid var(--color-secondary-text);
+  margin-top: 25px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 0.9em;
+  color: var(--color-secondary-text);
+}
+
+.app-footer p {
+  margin: 5px 0;
+}
+.shortcut-hint {
+  font-weight: 500;
+  margin-top: 10px;
+}
