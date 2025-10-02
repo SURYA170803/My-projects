@@ -93,7 +93,7 @@ function App() {
             </main>
 
             <footer className="app-footer">
-                <p>&copy; 2024 Surya's React Todo App</p>
+                <p>&copy; 2025 Surya's React Todo App</p>
                 <p>
                     Live Demo:&nbsp;
                     <a 
