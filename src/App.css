@@ -1,3 +1,54 @@
+:root {
+  --color-primary: #3498db;
+  --color-secondary: #2ecc71;
+  --color-background: #f4f4f4;
+  --color-surface: #ffffff;
+  --color-text: #333333;
+  --color-secondary-text: #7f8c8d;
+  --color-error: #e74c3c;
+  --color-accent: #f1c40f;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --color-primary: #5dade2;
+  --color-secondary: #27ae60;
+  --color-background: #36393f;
+  --color-surface: #2f3136;
+  --color-text: #ffffff;
+  --color-secondary-text: #b9bbbe;
+  --color-error: #c0392b;
+  --color-accent: #f39c12;
+  --color-shadow: rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .todo-app-wrapper {
   max-width: 800px;
   margin: 40px auto;
@@ -16,6 +67,11 @@
   margin-bottom: 25px;
 }
 
+.app-header h1 {
+  font-size: 2em;
+  color: var(--color-primary);
+}
+
 .theme-toggle-btn {
   background-color: var(--color-secondary-text);
   color: var(--color-surface);
@@ -31,6 +87,7 @@
 
 .form_row {
   display: flex;
+  flex-wrap: wrap; 
   gap: 10px;
   align-items: flex-start;
 }
@@ -50,6 +107,7 @@
   background-color: var(--color-background);
   color: var(--color-text);
   transition: border-color 0.2s;
+  min-width: 0; 
 }
 
 .add_todo_form input:focus,
@@ -63,6 +121,8 @@
   background-color: var(--color-primary);
   color: var(--color-surface);
   flex-shrink: 0; 
+  align-self: flex-start; 
+  margin-top: 1px; 
 }
 
 .add_todo_form .add-btn:hover {
@@ -88,7 +148,7 @@
   flex-grow: 1;
   display: flex;
   position: relative;
-  max-width: 300px;
+  max-width: 300px; 
 }
 
 .search-input {
@@ -227,4 +287,68 @@
 .shortcut-hint {
   font-weight: 500;
   margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .form_row {
+        flex-direction: column;
+        gap: 15px; 
+    }
+
+    .form_group {
+        width: 100%;
+    }
+
+    .add_todo_form input[type="text"],
+    .add_todo_form select,
+    .add_todo_form input[type="date"],
+    .add_todo_form .add-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .add_todo_form .add-btn {
+        margin-top: 0; 
+    }
+
+    .filters-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-bar-container {
+        max-width: 100%; 
+        width: 100%;
+    }
+
+    .category-filter-container, 
+    .status-filter {
+        flex-wrap: wrap; 
+        justify-content: flex-start;
+        width: 100%;
+        align-self: flex-start; 
+    }
+
+    .category-filter-container button,
+    .status-filter button {
+        flex-grow: 0; 
+        flex-shrink: 0;
+        margin: 5px 5px 5px 0; 
+    }
+
+    .todo-item {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .todo-main-content {
+        width: 100%;
+    }
+    
+    .todo-details {
+        width: 100%;
+        justify-content: space-between; 
+        margin-top: 5px;
+    }
 }
