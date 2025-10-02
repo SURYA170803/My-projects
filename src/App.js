@@ -93,9 +93,27 @@ function App() {
             </main>
 
             <footer className="app-footer">
-                <p>Developer: [Surya] | <a href="[Your GitHub Project URL]">GitHub Project</a></p>
-                <p>Hosted on Netlify: <a href="[Your Netlify Application URL]">[Netlify URL]</a></p>
-                <p className="shortcut-hint">💡 **Shortcut:** Press Ctrl+T to toggle Dark/Light mode.</p>
+                <p>&copy; 2024 Surya's React Todo App</p>
+                <p>
+                    Live Demo:&nbsp;
+                    <a 
+                        href="https://zingy-sopapillas-0d3257.netlify.app/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        Netlify Deployment
+                    </a>
+                </p>
+                <p>
+                    Source Code:&nbsp;
+                    <a 
+                        href="https://github.com/SURYA170803/My-projects" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                    >
+                        GitHub Repository
+                    </a>
+                </p>
             </footer>
         </div>
     );
